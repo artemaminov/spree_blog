@@ -1,0 +1,4 @@
+<p>Список статей</p>
+<% @blog.each do |post| %>
+  <%= link_to post.title, post %>
+<% end %>

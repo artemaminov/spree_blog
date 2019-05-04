@@ -1,0 +1,49 @@
+<%= render partial: 'spree/admin/shared/error_messages', locals: { target: @blog_post } %>
+
+<div class="row" id="general_fields" >
+  <div class="col-xs-12">
+
+    <%= f.field_container :title, class: ['form-group'] do %>
+      <%= f.label :title %> <span class="required">*</span>
+      <%= f.text_field :title, class: 'form-control' %>
+      <%= f.error_message_on :title %>
+    <% end %>
+
+    <%= f.field_container :content, class: ['form-group'] do %>
+      <%= f.label :content %> <span class="required">*</span>
+      <%= f.text_area :content, rows: 7, class: 'form-control' %>
+    <% end %>
+
+    <%= f.field_container :slug, class: ['form-group'] do %>
+      <%= f.label :slug %>
+      <%= f.text_field :slug, class: 'form-control' %>
+    <% end %>
+
+    <div class="row">
+      <div class="col-xs-12 col-md-4">
+        <%= f.field_container :published, class: ['checkbox'] do %>
+          <%= f.label :published do %>
+            <%= f.check_box :published %>
+            <%= Spree.t(:is_published) %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="col-xs-12 col-md-4">
+        <%= f.field_container :featured, class: ['checkbox'] do %>
+          <%= f.label :featured do %>
+            <%= f.check_box :featured %>
+            <%= Spree.t(:is_featured) %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="col-xs-12 col-md-4">
+        <%= f.field_container :hero_image, class: ['form-group'] do %>
+          <%= f.label :hero_image, Spree.t(:filename) %>
+          <%= f.file_field :hero_image %>
+        <% end %>
+      </div>
+    </div>
+
+
+  </div>
+</div>

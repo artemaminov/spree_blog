@@ -1,0 +1,13 @@
+<% content_for :page_title do %>
+  <%= link_to Spree.t('admin.tab.blog_posts'), admin_blog_posts_url %> /
+  <%= @blog_post.title.capitalize %>
+<% end %>
+
+<%= render partial: 'spree/admin/shared/error_messages', locals: { target: @blog_post } %>
+
+<%= form_for [:admin, @blog_post] do |f| %>
+  <%= render partial: 'form', locals: { f: f } %>
+  <div class="text-center">
+    <%= render partial: 'spree/admin/shared/edit_resource_links' %>
+  </div>
+<% end %>

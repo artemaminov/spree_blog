@@ -1,10 +1,10 @@
 <% content_for :page_title do %>
-  <%= plural_resource_name(Spree::Post) %>
+  <%= plural_resource_name(Spree::Blog::Post) %>
 <% end %>
 
 <% content_for :page_actions do %>
   <%= button_link_to Spree.t(:new_admin_blog_post), new_object_url, { class: "btn-success", icon: 'add', id: 'new_admin_blog_post' } %>
-<% end if can?(:create, Spree::Post) %>
+<% end if can?(:create, Spree::Blog::Post) %>
 
 <%# content_for :table_filter do %>
 <!--  <div data-hook="admin_products_sidebar">-->
@@ -53,29 +53,28 @@
 <% if @collection.any? %>
   <table class="table" id="listing_products">
     <thead>
-    <tr data-hook="admin_products_index_headers">
-      <th><%= Spree.t(:sku) %></th>
-      <th><%= Spree.t(:status) %></th>
-
-      <th colspan="2"><%= sort_link @search,:name, Spree.t(:name), { default_order: "desc" }, {title: 'admin_products_listing_name_title'} %></th>
-      <th class="text-center">
-        <%= sort_link @search, :master_default_price_amount, Spree.t(:master_price), {}, {title: 'admin_products_listing_price_title'} %>
-      </th>
-      <th data-hook="admin_products_index_header_actions" class="actions"></th>
-    </tr>
+      <tr data-hook="admin_products_index_headers">
+        <th colspan="2">
+          <%= sort_link @search, :title, Spree.t(:title), { default_order: "desc" }, {title: 'admin_products_listing_name_title'} %></th>
+        <th>
+          <%= sort_link @search, :featured, Spree.t(:is_featured), { default_order: "desc" }, {title: 'admin_products_listing_name_title'} %></th>
+        </th>
+        <th class="text-center">
+          <%= sort_link @search, :published, Spree.t(:is_published), {}, {title: 'admin_products_listing_price_title'} %>
+        </th>
+        <th data-hook="admin_products_index_header_actions" class="actions"></th>
+      </tr>
     </thead>
     <tbody>
-    <% @collection.each do |product| %>
-      <tr <%== "style='color: red;'" if product.deleted? %> id="<%= spree_dom_id product %>" data-hook="admin_products_index_rows" class="<%= cycle('odd', 'even') %>">
-        <td class="sku"><%= product.sku rescue '' %></td>
-        <td class="status"><%= available_status(product) %> </td>
-        <td class="image"><%= mini_image product %></td>
-        <td><%= link_to product.try(:name), edit_admin_product_path(product) %></td>
-        <td class="text-center"><%= product.display_price.to_html rescue '' %></td>
+    <% @collection.each do |post| %>
+      <tr id="<%= spree_dom_id post %>" data-hook="admin_products_index_rows" class="<%= cycle('odd', 'even') %>">
+        <td class="image"><%= post.hero_image %></td>
+        <td><%= link_to post.try(:title), edit_admin_blog_post_path(post) %></td>
+        <td class="status"><%= post.featured %> </td>
+        <td class="text-center"><%= post.published.to_html rescue '' %></td>
         <td class="actions actions-3 text-right" data-hook="admin_products_index_row_actions">
-          <%= link_to_edit product, no_text: true, class: 'edit' if can?(:edit, product) && !product.deleted? %>
-          <%= link_to_clone product, no_text: true, class: 'clone' if can?(:clone, product) %>
-          <%= link_to_delete product, no_text: true if can?(:delete, product) && !product.deleted? %>
+          <%= link_to_edit post, no_text: true, class: 'edit' if can?(:edit, post) %>
+          <%= link_to_delete post, no_text: true if can?(:delete, post) %>
         </td>
       </tr>
     <% end %>
@@ -83,8 +82,8 @@
   </table>
 <% else %>
   <div class="alert alert-info no-objects-found">
-    <%= Spree.t(:no_resource_found, resource: plural_resource_name(Spree::Post)) %>,
-    <%= link_to Spree.t(:add_one), new_object_url if can?(:create, Spree::Post) %>!
+    <%= Spree.t(:no_resource_found, resource: plural_resource_name(Spree::Blog::Post)) %>,
+    <%= link_to Spree.t(:add_one), new_object_url if can?(:create, Spree::Blog::Post) %>!
   </div>
 <% end %>
 

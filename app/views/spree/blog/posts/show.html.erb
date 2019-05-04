@@ -1,0 +1,21 @@
+<% content_for :head do %>
+<% end %>
+
+<% content_for :sidebar do %>
+  <%= render partial: 'blog_sidebar' %>
+<% end %>
+
+<div id="blog_entry_container">
+  <div id="blog_entry_entry">
+
+    <h1><%= @post.title %></h1>
+
+    <div class="blog_entry_body">
+      <%== @post.content %>
+    </div>
+
+    <%#= render :partial => 'spree/blog_entries/blog_entry_details', :locals => { blog_post: @post } %>
+  </div>
+
+  <%#= render :partial => 'spree/blog_entries/comments', locals: { post: @post}  %>
+</div>
