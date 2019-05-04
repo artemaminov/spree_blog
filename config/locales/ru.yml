@@ -1,3 +1,23 @@
 ru:
+  activerecord:
+    attributes:
+      spree/blog/post:
+       title: Заголовок
+       content: Текст
+       slug: Ссылка
+       published: Опубликован
+       featured: Продвигается
+    models:
+      spree/blog/post:
+        one: Запись блога
+        other: Записи блога
   spree:
-    blog: "Блог"
+    admin:
+      blog_post:
+        new: Новая запись
+      tab:
+        blog_posts: Записи блога
+    blog: Блог
+    is_featured: На главной
+    new_admin_blog_post: Создать запись
+    new_blog_post: Новая запись
