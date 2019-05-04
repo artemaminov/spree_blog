@@ -1,4 +1,4 @@
-Spree::Core::Engine.add_routes do
+Spree::Core::Engine.routes.draw do
   # Add your extension routes here
   namespace :blog do
     resources :posts, only: [:index, :show]
@@ -9,5 +9,7 @@ Spree::Core::Engine.add_routes do
       resources :posts, only: [:index, :new, :create, :edit, :update, :destroy]
     end
   end
+
+  root to: 'blog/posts#index'
 
 end
