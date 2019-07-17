@@ -7,6 +7,7 @@ end
 
 gem 'spree', '~> 3.6.3'
 gem 'spree_auth_devise', '~> 3.3'
+gem 'trix-rails', path: '~/Sites/!lab/trix', require: 'trix'
 gem 'rails-controller-testing'
 
 gem 'rubocop', require: false
