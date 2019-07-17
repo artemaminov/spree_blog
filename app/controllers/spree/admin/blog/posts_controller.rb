@@ -2,37 +2,7 @@ module Spree
   module Admin
     module Blog
       class PostsController < ResourceController
-        #
-        # def index
-        #   session[:return_to] = request.url
-        #   respond_with(@collection)
-        # end
-        #
-        # def new
-        #   # @post = Spree::BlogPost.new
-        # end
-        #
-        # def create
-        #   byebug
-        #   Spree::Blog::Post.create(blog_post_params)
-        # end
-        #
-        # def edit
-        #
-        # end
-        #
-        # def update
-        # end
-        #
-        # def destroy
-        # end
-        #
-        # private
-        #
-        # def blog_post_params
-        #   params.require(:blog_post).permit(:title, :content, :slug, :published, :featured)
-        # end
-        #
+
         protected
 
         def collection
@@ -40,7 +10,6 @@ module Spree
           params[:q] ||= {}
           params[:q][:published] ||= '1'
           params[:q][:featured] ||= '1'
-
           params[:q][:s] ||= 'title asc'
           @collection = super
           # Don't delete params[:q][:deleted_at_null] here because it is used in view to check the
