@@ -18,6 +18,7 @@ ru:
       tab:
         blog_posts: Записи блога
     blog: Блог
+    featured_blog_posts: Список featured статей
     is_featured: На главной
     new_admin_blog_post: Создать запись
-    new_blog_post: Новая запись
+    new_blog_post: Новая запись    recent_blog_posts: Последние статьи

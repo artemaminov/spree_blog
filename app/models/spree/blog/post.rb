@@ -13,6 +13,8 @@ module Spree
       before_validation :set_permalink, on: :update, if: :title
 
       scope :published, -> { where published: true }
+      scope :recent, -> { published.order(:updated_at).limit(5) }
+      scope :featured_posts, -> { published.limit(5).where featured: true }
 
       validates :title, presence: true
 

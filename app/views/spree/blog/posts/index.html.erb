@@ -2,4 +2,15 @@
   <%= render partial: 'blog_sidebar' %>
 <% end %>
 
-<p>Статья</p>
+<h4><%= Spree.t(:featured_blog_posts) %></h4>
+<% if @featured_posts.blank? %>
+  <p><%= Spree.t(:no_blog_posts) %></p>
+<% else %>
+  <ul class="list-unstyled">
+  <% @featured_posts.each do |post| %>
+    <li>
+      <%= render partial: 'posts_list', locals: { post: post } %>
+    </li>
+  <% end %>
+  </ul>
+<% end %>

@@ -70,7 +70,7 @@
       <tr id="<%= spree_dom_id post %>" data-hook="admin_products_index_rows" class="<%= cycle('odd', 'even') %>">
         <td class="image"><%= image_tag(main_app.url_for post.hero_image.url(:small)) rescue '' %></td>
         <td><%= link_to post.try(:title), edit_admin_blog_post_path(post) %></td>
-        <td class="status"><%= post.featured %> </td>
+        <td class="status"><%= post.featured.to_html rescue '' %> </td>
         <td class="text-center"><%= post.published.to_html rescue '' %></td>
         <td class="actions actions-3 text-right" data-hook="admin_products_index_row_actions">
           <%= link_to_edit post, no_text: true, class: 'edit' if can?(:edit, post) %>

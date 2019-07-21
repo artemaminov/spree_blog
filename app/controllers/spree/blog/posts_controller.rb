@@ -4,7 +4,7 @@ module Spree
       before_action :load_blog
 
       def index
-
+        @featured_posts = Blog::Post.featured_posts
       end
 
       def show
@@ -14,7 +14,7 @@ module Spree
       private
 
       def load_blog
-        @blog = Blog::Post.published
+        @blog = Blog::Post.recent
       end
 
       def load_post(id)

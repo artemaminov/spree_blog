@@ -1,4 +1,13 @@
-<p>Список статей</p>
-<% @blog.each do |post| %>
-  <%= link_to post.title, post %>
-<% end %>
+<nav class="sidebar-item">
+  <h4><%= Spree.t(:recent_blog_posts) %></h4>
+  <% if @blog.blank? %>
+    <p><%= Spree.t(:no_blog_posts) %></p>
+  <% else %>
+    <div class="list-group">
+      <% @blog.each do |post| %>
+        <%= link_to post.title, post, class: "list-group-item" %>
+      <% end %>
+    </div>
+  <% end %>
+
+</nav>
