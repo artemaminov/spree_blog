@@ -1,0 +1,67 @@
+// Turn off the default Trix captions
+Trix.config.attachments.preview.caption = {
+//    name: false,
+//    size: false
+};
+
+function deleteAttachment(attachment) {
+    let postSlug = $('#blog_post_slug').val();
+    let file = attachment;
+    let xhr = new XMLHttpRequest;
+    xhr.open("DELETE", "/admin/blog/posts/" + postSlug + "/images/" + file.attachment.attributes.values.id, true);
+    xhr.setRequestHeader("X-CSRF-Token", $.rails.csrfToken());
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            let data = JSON.parse(xhr.responseText);
+            alert(data);
+        }
+    }
+    return xhr.send();
+}
+
+function uploadAttachment(attachment) {
+    // Create our form data to submit
+    let file = attachment.file;
+    // Create our XHR request
+    let xhr = new XMLHttpRequest;
+    let postSlug = $('#blog_post_slug').val();
+    let postId = $('#blog_post_id').val();
+    let form = new FormData;
+    form.append("Content-Type", file.type);
+    form.append("blog_image[viewable_id]", postId);
+    form.append("blog_image[attachment]", file);
+    xhr.open("POST", "/admin/blog/posts/" + postId + "/images", true);
+    xhr.setRequestHeader("X-CSRF-Token", $.rails.csrfToken());
+
+    // Report file uploads back to Trix
+    xhr.upload.onprogress = function(event) {
+        let progress = event.loaded / event.total * 100;
+        attachment.setUploadProgress(progress);
+    };
+
+    // Tell Trix what url and href to use on successful upload
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            let data = JSON.parse(xhr.responseText);
+            return attachment.setAttributes({
+                url: data.image_url,
+                href: data.url,
+                id: data.id
+            })
+        }
+    };
+    return xhr.send(form);
+}
+
+document.addEventListener("trix-attachment-remove", function(event) {
+    let attachment = event.attachment;
+    return deleteAttachment(attachment);
+});
+
+// Listen for the Trix attachment event to trigger upload
+document.addEventListener("trix-attachment-add", function(event) {
+    let attachment = event.attachment;
+    if (attachment.file) {
+        return uploadAttachment(attachment);
+    }
+});
