@@ -2,4 +2,5 @@
 // the installer will append this file to the app vendored assets here: vendor/assets/javascripts/spree/backend/all.js'
 //= require trix
 //= require trix_uploads
+//= require trix_toolbar
 //= require activestorage
