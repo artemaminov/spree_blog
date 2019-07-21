@@ -36,13 +36,16 @@
           <% end %>
         <% end %>
       </div>
-      <div class="col-xs-12 col-md-4">
-        <%= f.field_container :hero_image, class: ['form-group'] do %>
-          <%= f.label :hero_image, Spree.t(:filename) %>
-          <%= f.file_field :hero_image %>
-        <% end %>
+    <% end %>
+
+    <%= f.field_container :hero_image, class: ['form-group'] do %>
+      <div>
+        <%= image_tag main_app.url_for(f.object.hero_image.url(:hero_image)) rescue '' %>
       </div>
-    </div>
+      <%= f.label :hero_image, Spree.t(:filename) %>
+      <%= f.text_field :id, hidden: true %>
+      <%= f.file_field :hero_image, direct_upload: true, name: 'blog_post[hero_image_attributes][attachment]' %>
+    <% end %>
 
 
   </div>
