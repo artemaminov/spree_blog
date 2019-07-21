@@ -31,6 +31,7 @@ the installer will append this file to the app vendored assets here: 'vendor/ass
 .blog_entry_body {
   @include blog-text;
   line-height: 32px;
+  width: 35em;
   h4 {
     @include header;
     font-size: 36px;
