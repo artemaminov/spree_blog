@@ -1,0 +1,39 @@
+/*
+Placeholder manifest file.
+the installer will append this file to the app vendored assets here: 'vendor/assets/stylesheets/spree/backend/all.css'
+ */
+@import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates:700|Roboto:300&display=swap');
+@mixin header {
+  font: {
+    family: 'Montserrat Alternates', sans-serif;
+    size: 60px;
+    weight: 700;
+    style: normal;
+  }
+}
+
+@mixin blog-text {
+  font: {
+    family: 'Roboto', sans-serif;
+    size: 20px;
+    weight: 300;
+    style: normal;
+  }
+}
+
+.hero-image {
+  h1 {
+    @include header;
+    line-height: 64px;
+  }
+}
+
+.blog_entry_body {
+  @include blog-text;
+  line-height: 32px;
+  h4 {
+    @include header;
+    font-size: 36px;
+    line-height: 43px;
+  }
+}

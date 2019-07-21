@@ -6,9 +6,12 @@
 <% end %>
 
 <div id="blog_entry_container">
-  <div id="blog_entry_entry">
+  <div id="blog_entry">
 
-    <h1><%= @post.title %></h1>
+    <div class="hero-image">
+      <%= image_tag main_app.url_for(@post.hero_image.url(:large)) rescue '' %>
+      <h1><%= @post.title %></h1>
+    </div>
 
     <div class="blog_entry_body">
       <%== @post.content %>
