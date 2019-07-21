@@ -10,13 +10,14 @@ module Spree
 
       extend FriendlyId
       friendly_id :title, slug_column: :slug, use: :slugged
-      before_validation :set_permalink, on: :update, if: :title
 
       scope :published, -> { where published: true }
       scope :recent, -> { published.order(:updated_at).limit(5) }
       scope :featured_posts, -> { published.limit(5).where featured: true }
 
+      before_validation :set_permalink, on: :create, if: :title
       validates :title, presence: true
+      validates :slug, uniqueness: true
 
       def set_permalink
         self.slug = title.to_url if slug.blank?
