@@ -3,20 +3,8 @@
 <div class="row" id="general_fields" >
   <div class="col-xs-12">
 
-    <%= f.field_container :title, class: ['form-group'] do %>
-      <%= f.label :title %> <span class="required">*</span>
-      <%= f.text_field :title, class: 'form-control' %>
-      <%= f.error_message_on :title %>
-    <% end %>
-
-    <%= f.field_container :content, class: ['form-group'] do %>
-      <%= f.label :content %> <span class="required">*</span>
-      <%= f.text_area :content, rows: 7, class: 'form-control' %>
-    <% end %>
-
-
-    <div class="row">
-      <div class="col-xs-12 col-md-4">
+    <%= f.field_container :status, class: ['form-group'] do %>
+      <div class="col-md-2">
         <%= f.field_container :published, class: ['checkbox'] do %>
           <%= f.label :published do %>
             <%= f.check_box :published %>
@@ -24,7 +12,7 @@
           <% end %>
         <% end %>
       </div>
-      <div class="col-xs-12 col-md-4">
+      <div class="col-md-10">
         <%= f.field_container :featured, class: ['checkbox'] do %>
           <%= f.label :featured do %>
             <%= f.check_box :featured %>
@@ -43,6 +31,21 @@
       <%= f.file_field :hero_image, direct_upload: true, name: 'blog_post[hero_image_attributes][attachment]' %>
     <% end %>
 
+    <%= f.field_container :title, class: ['form-group'] do %>
+      <%= f.label :title %> <span class="required">*</span>
+      <%= f.text_field :title, class: 'form-control' %>
+      <%= f.error_message_on :title %>
+    <% end %>
+
+    <%= f.field_container :content, class: ['form-group'] do %>
+      <%= f.label :content %> <span class="required">*</span>
+      <%= f.trix_editor :content %>
+    <% end %>
+
+    <%= f.field_container :slug, class: ['form-group'] do %>
+      <%= f.label :slug %>
+      <%= f.text_field :slug, class: 'form-control' %>
+    <% end %>
 
   </div>
 </div>

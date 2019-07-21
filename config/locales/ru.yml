@@ -21,4 +21,6 @@ ru:
     featured_blog_posts: Список featured статей
     is_featured: На главной
     new_admin_blog_post: Создать запись
-    new_blog_post: Новая запись    recent_blog_posts: Последние статьи
+    new_blog_post: Новая запись
+    no_blog_posts: Статей нет
+    recent_blog_posts: Последние статьи
