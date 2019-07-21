@@ -1,6 +1,6 @@
 # SpreeBlog
 
-Introduction goes here.
+Blog system for Spree
 
 ## Installation
 
