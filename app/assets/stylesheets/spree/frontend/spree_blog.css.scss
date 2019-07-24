@@ -3,6 +3,21 @@ Placeholder manifest file.
 the installer will append this file to the app vendored assets here: 'vendor/assets/stylesheets/spree/backend/all.css'
  */
 @import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates:700|Roboto:300&display=swap');
+
+@media (min-width: 768px) {
+  .blog_entry_body {
+  }
+}
+@media (min-width: 992px) {
+  .blog_entry_body {
+  }
+}
+@media (min-width: 1200px) {
+  .blog_entry_body {
+    width: 48rem;
+  }
+}
+
 @mixin header {
   font: {
     family: 'Montserrat Alternates', sans-serif;
@@ -15,13 +30,23 @@ the installer will append this file to the app vendored assets here: 'vendor/ass
 @mixin blog-text {
   font: {
     family: 'Roboto', sans-serif;
-    size: 20px;
+    size: 16px;
     weight: 300;
     style: normal;
   }
 }
 
+html {
+  @include blog-text;
+}
+body {
+  @include blog-text;
+}
+
 .hero-image {
+  img {
+    width: 100%;
+  }
   h1 {
     @include header;
     line-height: 64px;
@@ -30,11 +55,31 @@ the installer will append this file to the app vendored assets here: 'vendor/ass
 
 .blog_entry_body {
   @include blog-text;
-  line-height: 32px;
-  width: 35em;
+  line-height: 2.5rem;
+  font-size: 1.5rem;
   h4 {
     @include header;
-    font-size: 36px;
-    line-height: 43px;
+    font-size: 2.5rem;
+    line-height: 3rem;
+    padding-top: 2rem;
+  }
+  .attachment-gallery {
+    display: flex;
+    flex: {
+      wrap: wrap;
+      grow: 1;
+      basis: auto;
+    }
+  }
+  figure {
+    display: flex;
+    .attachment__caption {
+      &.attachment__caption--edited {
+        font: {
+          size: 0.7em;
+        }
+        text-align: center;
+      }
+    }
   }
 }
