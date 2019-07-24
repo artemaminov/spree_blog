@@ -24,7 +24,7 @@
 
     <%= f.field_container :hero_image, class: ['form-group'] do %>
       <div>
-        <%= image_tag main_app.url_for(f.object.hero_image.url(:hero_image)) rescue '' %>
+        <%= image_tag main_app.url_for(f.object.hero_image.url(:hero)) rescue '' %>
       </div>
       <%= f.label :hero_image, Spree.t(:filename) %>
       <%= f.text_field :id, hidden: true %>

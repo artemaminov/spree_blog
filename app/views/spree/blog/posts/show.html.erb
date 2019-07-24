@@ -9,7 +9,7 @@
   <div id="blog_entry">
 
     <div class="hero-image">
-      <%= image_tag main_app.url_for(@post.hero_image.url(:large)) rescue '' %>
+      <%= image_tag main_app.url_for(@post.hero_image.url(:hero)) rescue '' %>
       <h1><%= @post.title %></h1>
     </div>
 
