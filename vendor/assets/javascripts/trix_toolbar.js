@@ -1,18 +1,18 @@
-Trix.config.textAttributes.heading = { tagName: "h4", inheritable: true }
-Trix.config.textAttributes.sub = { tagName: "sub", inheritable: true }
-Trix.config.textAttributes.sub = { tagName: "sub", inheritable: true }
+Trix.config.textAttributes.heading = { tagName: "h4", inheritable: false };
+Trix.config.textAttributes.sub = { tagName: "sub", inheritable: true };
+Trix.config.textAttributes.sub = { tagName: "sub", inheritable: true };
 
 addEventListener("trix-initialize", function(event) {
-    let buttonHTML, buttonHTMLHeading, buttonGroup
+    let buttonHTML, buttonHTMLHeading, buttonGroup;
 
-    buttonHTML  = '<button type="button" class="trix-button" data-trix-attribute="sup" title="Sup"><sup>SUP</sup></button>'
-    buttonHTML += '<button type="button" class="trix-button"data-trix-attribute="sub" title="Sub"><sub>SUB</sub></button>'
-    buttonHTMLHeading  = '<button type="button" class="trix-button"data-trix-attribute="heading" title="Heading">H</button>'
+    buttonHTML  = '<button type="button" class="trix-button" data-trix-attribute="sup" title="Sup"><sup>SUP</sup></button>';
+    buttonHTML += '<button type="button" class="trix-button"data-trix-attribute="sub" title="Sub"><sub>SUB</sub></button>';
+    buttonHTMLHeading  = '<button type="button" class="trix-button"data-trix-attribute="heading" title="Heading">H</button>';
 
-    buttonGroup = event.target.toolbarElement.querySelector(".trix-button-group--text-tools")
-    buttonGroup.insertAdjacentHTML("beforeend", buttonHTML)
+    buttonGroup = event.target.toolbarElement.querySelector(".trix-button-group--text-tools");
+    buttonGroup.insertAdjacentHTML("beforeend", buttonHTML);
     buttonGroup.insertAdjacentHTML("afterbegin", buttonHTMLHeading)
-})
+});
 
 // addEventListener("trix-initialize", function(event) {
 //     var element = event.target
