@@ -7,6 +7,7 @@ module SpreeBlog
             small:   '100x100>',
             product: '240x240>',
             large:   '600x600>',
+            post: '256',
             hero: '848'
         }
       end

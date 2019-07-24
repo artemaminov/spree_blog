@@ -1,4 +1,4 @@
 <%= link_to post do %>
-  <%= image_tag main_app.url_for(post.hero_image.url(:hero_image)) rescue '' %>
+  <%= image_tag main_app.url_for(post.hero_image.url(:post)) rescue '' %>
   <h1><%= post.title %></h1>
 <% end %>
