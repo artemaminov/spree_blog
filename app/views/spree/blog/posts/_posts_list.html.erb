@@ -1,4 +1,5 @@
-<%= link_to post do %>
-  <%= image_tag main_app.url_for(post.hero_image.url(:post)) rescue '' %>
-  <h1><%= post.title %></h1>
+<%= link_to post, class: "list-group-item" do %>
+  <span class="image" style="background-image: url(<%= main_app.url_for(post.hero_image.url(:hero)) rescue '' %>)"></span>
+  <%#= image_tag main_app.url_for(post.hero_image.url(:post)) rescue '' %>
+  <h2><%= post.title %></h2>
 <% end %>
