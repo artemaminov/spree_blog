@@ -1,0 +1,11 @@
+.trix-content {
+  .attachment-gallery {
+    justify-content: space-around;
+  }
+  .attachment.attachment--preview {
+    flex: none !important;
+    padding: 0;
+    max-width: none;
+    width: 236px;
+  }
+}

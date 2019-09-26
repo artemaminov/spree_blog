@@ -2,4 +2,5 @@
 Placeholder manifest file.
 the installer will append this file to the app vendored assets here: 'vendor/assets/stylesheets/spree/backend/all.css'
 *= require trix
+*= require spree/backend/trix_flex_bounding_box_fix
 */
