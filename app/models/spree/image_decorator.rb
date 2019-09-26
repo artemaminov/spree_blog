@@ -3,7 +3,7 @@ module SpreeBlog
     module ClassMethods
       def styles
         @styles = super.merge({
-            post: '256',
+            post: '236',
             hero: '848'
         })
       end
