@@ -1,5 +1,11 @@
-<%= link_to post, class: "list-group-item" do %>
+<%= link_to post, class: "panel-body" do %>
   <span class="image" style="background-image: url(<%= main_app.url_for(post.hero_image.url(:hero)) rescue '' %>)"></span>
   <%#= image_tag main_app.url_for(post.hero_image.url(:post)) rescue '' %>
   <h2><%= post.title %></h2>
 <% end %>
+<div class="panel-footer">
+  <span class="date"></span>
+  <span class="author"></span>
+  <span class="views"></span>
+  <span class="likes"></span>
+</div>

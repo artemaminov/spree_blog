@@ -8,7 +8,7 @@
 <% else %>
   <div class="featured-posts list-group">
     <% @featured_posts.each do |post| %>
-    <article class="panel">
+    <article class="panel panel-default">
       <%= render partial: 'posts_list', locals: { post: post } %>
     </article>
     <% end %>
