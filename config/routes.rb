@@ -13,6 +13,4 @@ Spree::Core::Engine.add_routes do
     end
   end
 
-  root to: 'blog/posts#index'
-
 end
