@@ -1,10 +1,6 @@
-Deface::Override.new(:original => 'e48585c7f540e0c388f4c9b7480a84b5f56003e4',
-                     :virtual_path => "spree/layouts/admin",
+Deface::Override.new(:original => '124d94055e50e10face432db54d4f20ef5ac2a42',
+                     :virtual_path => "spree/admin/shared/_main_menu",
                      :name => "blog_admin_tabs",
-                     :insert_bottom => "[data-hook='admin_tabs']",
-                     :text => "<% if can? :admin, Spree::Promotion %>
-  <ul class=\"nav nav-sidebar\">
-    <%= main_menu_tree Spree.t(:blog), icon: \"gift\", sub_menu: \"blog\", url: \"#sidebar-blog\" %>
-</ul>
-<% end %>",
+                     :insert_bottom => "nav",
+                     :partial => 'spree/admin/shared/blog_menu',
                      :disabled => false)
