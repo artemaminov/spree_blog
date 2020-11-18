@@ -1,4 +1,4 @@
-module SpreeBlog
+module Spree
   module ImageDecorator
     module ClassMethods
       def styles
@@ -16,4 +16,4 @@ module SpreeBlog
   end
 end
 
-Spree::Image.prepend SpreeBlog::ImageDecorator
+Spree::Image.prepend Spree::ImageDecorator
