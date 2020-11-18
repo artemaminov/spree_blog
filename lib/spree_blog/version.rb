@@ -9,8 +9,8 @@ module SpreeBlog
 
   module VERSION
     MAJOR = 0
-    MINOR = 1
-    TINY  = 3
+    MINOR = 2
+    TINY  = 0
     PRE   = 'beta'.freeze
 
     STRING = [MAJOR, MINOR, TINY, PRE].compact.join('.')
